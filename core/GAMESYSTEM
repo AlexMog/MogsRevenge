@@ -1,0 +1,48 @@
+GameConcept
+
+- Game name: Mog's revenge \o/ (that's a fxcking cool name!)
+
+- RPG without history survival
+- 2D Iso Game
+- Steampunk concept
+- Post apocalyptic world (end of the world?)
+- Evolution IA => if you attack them, and they are stronger, they attack, else, they will run
+- Persistent world => every change is definitive in the world
+- Crafting?
+- Mining?
+- Randomly generated world?
+- MMO system?
+
+
+Creatures
+- Animals
+- Mutants?
+- Meca monsters
+
+
+Player character:
+- Health (lowl, normal)
+- Food level
+- Exp and levelling? (Nope, i don't like this idea.)
+- Skills that are adapted with their usage (skyrim-like system?, i prefer this one)
+
+World:
+- Desertic world
+- Constructible and destructible world
+- 2D perlin generation
+
+IA concept:
+- Multiple animals "clans"
+- the animals are at first neutral. They didn't attack the player, they didn't approach it.
+- If the player attacks an animal:
+	The animal is stronger than the player, he will be aggressive with him.
+	The animal is weak than the player, he will run.
+	The animal have a group of other animals and decide to attack with his group.
+
+Mutants IA:
+- Mutants have to be like old humans. They have to react like humans.
+- if the mutants is near his territory, he will defend it.
+- Mutants stands together. If there is a mutant, he will call other mutants.
+- Mutants didn't attack directly, they wait for the best moment to attack.
+- If they are more then 3, they will encircle the player.
+
