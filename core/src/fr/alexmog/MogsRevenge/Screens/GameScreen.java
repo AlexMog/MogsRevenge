@@ -1,6 +1,7 @@
 package fr.alexmog.MogsRevenge.Screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
@@ -13,12 +14,20 @@ public class GameScreen implements MyScreen {
 	private OrthographicCamera camera;
 
 	public GameScreen(MogsRevenge mogsRevenge) {
-		// TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor stubgrass.jpg
 	}
 
 	@Override
 	public void render(float delta) {
 		// UPDATE
+		if (Gdx.input.isKeyPressed(Keys.UP))
+			camera.position.y += 2;
+		else if (Gdx.input.isKeyPressed(Keys.DOWN))
+			camera.position.y -= 2;
+		if (Gdx.input.isKeyPressed(Keys.RIGHT))
+			camera.position.x += 2;
+		else if (Gdx.input.isKeyPressed(Keys.LEFT))
+			camera.position.x -= 2;
 		camera.update();
 
 		// DRAWS
