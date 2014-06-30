@@ -2,5 +2,9 @@ package fr.alexmog.MogsRevenge.Screens;
 
 public enum Screens {
 	GAME,
-	LOAD
+	LOAD,
+	MULTIPLAYER,
+	OPTIONS,
+	CREDITS,
+	MENU
 }

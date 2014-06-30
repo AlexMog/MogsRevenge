@@ -15,6 +15,12 @@ import fr.alexmog.MogsRevenge.Entities.Entity;
 import fr.alexmog.MogsRevenge.Entities.Player;
 import fr.alexmog.MogsRevenge.Ressources.RessourcesGestionnary;
 
+/***
+ * TODO Use an only mesh for the map, she is too big for drawing method. (vertexArray?)
+ * @author AlexMog
+ *
+ */
+
 public class Map {
 	private Vector<Cell> cells = new Vector<Cell>();
 	private int width, height;
