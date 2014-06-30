@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import fr.alexmog.MogsRevenge.Datas.DataGestionnary;
 import fr.alexmog.MogsRevenge.Entities.Entity;
+import fr.alexmog.MogsRevenge.Entities.Player;
 import fr.alexmog.MogsRevenge.Ressources.RessourcesGestionnary;
 
 public class Map {
@@ -37,6 +38,7 @@ public class Map {
 	public void generateMap() {
 		Random rand = DataGestionnary.getInstance().rand;
 		Vector<Vector2> road = new Vector<Vector2>();
+		entities.clear();
 		
 		// Generate a fxcking road!
 		int roadSize = rand.nextInt(20) + 50;
@@ -45,6 +47,7 @@ public class Map {
 		int xStart = rand.nextInt(width - 1) + 1;
 		int yStart = rand.nextInt(height - 1) + 1;
 		road.set(0, new Vector2(xStart, yStart));
+		entities.add(new Player(new Vector2(xStart, yStart))); // Ajout du joueur dans une case vide
 		int way = 0;
 		for (int i = 1; i < roadSize; ++i)
 		{
@@ -80,7 +83,11 @@ public class Map {
 					|| newVector.x <= 0 || newVector.y <= 0)
 			{
 				i--;
-				System.out.println("\tNot validated.");
+				System.out.println("\tNot validated yet.");
+				if (newVector.x == 0 && newVector.y == 0) {
+					generateMap();
+					return ;
+				}
 				continue;
 			}
 			for (int j = 0; j < i; ++j) {
@@ -110,15 +117,28 @@ public class Map {
 						break;
 					}
 				}
-				if (!isRoad)
+				if (!isRoad) {
 					cell.setStage(0, RessourcesGestionnary.getInstance().getAssetManager().get("data/images/map/Wall.png", Texture.class));
-				else
+					cell.addAttribute(Attributes.BLOCKING);
+				} else
 					cell.setStage(0, RessourcesGestionnary.getInstance().getAssetManager().get("data/images/map/Grass.png", Texture.class));
 				setCell(x, y, cell);
 			}
 	}
 	
 	public void render(float delta, OrthographicCamera camera) {
+		// Event part
+		for (Entity entity : entities) {
+			entity.update(delta);
+			Cell cell = getCell((int)(entity.getPos().x + 0.5), (int)(entity.getPos().y + 0.5)); // Problem omg...
+			entity.onInterraction(cell);
+			if (entity instanceof Player) {
+				camera.position.x = entity.getPos().x * entity.getSize();
+				camera.position.y = entity.getPos().y * entity.getSize();
+			}
+		}
+		
+		// Display part
 		spriteBatch.setProjectionMatrix(camera.combined);
 		spriteBatch.begin();
 		for (int y = 0; y < height; ++y)

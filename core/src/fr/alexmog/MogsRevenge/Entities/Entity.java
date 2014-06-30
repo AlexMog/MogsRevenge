@@ -6,6 +6,7 @@ public abstract class Entity implements IEntity {
 	protected int life;
 	protected Vector2 pos;
 	protected float speed;
+	protected int size;
 	
 	public void setLife(int life) {
 		this.life = life;
@@ -13,6 +14,14 @@ public abstract class Entity implements IEntity {
 	
 	public int getLife() {
 		return (life);
+	}
+	
+	public void setSize(int size) {
+		this.size = size;
+	}
+	
+	public int getSize() {
+		return (size);
 	}
 	
 	public void setSpeed(float speed) {

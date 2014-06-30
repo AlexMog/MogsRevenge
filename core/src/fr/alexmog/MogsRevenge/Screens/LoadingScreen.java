@@ -30,6 +30,7 @@ public class LoadingScreen implements MyScreen {
 		RessourcesGestionnary.getInstance().getAssetManager().load("data/images/backgrounds/main.jpeg", Texture.class);
 		RessourcesGestionnary.getInstance().getAssetManager().load("data/images/map/Wall.png", Texture.class);
 		RessourcesGestionnary.getInstance().getAssetManager().load("data/images/map/Grass.png", Texture.class);
+		RessourcesGestionnary.getInstance().getAssetManager().load("data/images/entities/player/player.png", Texture.class);
 	}
 
 	@Override
